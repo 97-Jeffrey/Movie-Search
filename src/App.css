@@ -66,11 +66,14 @@ input[type="text"]:focus {
 .movie-Poster {
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+  height: 400px;
+  width: 400px;
+  overflow: hidden;
 }
 
 .movie-error {
   height: 400px;
-  width: 300px;
+  width: 400px;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   background: url("/public/images/images_error.png") no-repeat center center;
@@ -85,7 +88,7 @@ input[type="text"]:focus {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding-left: 2rem;
+  padding-left: 1rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   background: #201f2f;
@@ -98,13 +101,18 @@ input[type="text"]:focus {
 
 .movie-title {
   font-weight: 700;
-  font-size: 40px;
+  font-size: 50px;
   margin-bottom: 20px;
 }
 
 .movie-year {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 10px;
+}
+.movie-type {
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 
 .movie-button {

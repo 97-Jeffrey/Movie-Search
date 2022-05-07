@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = ({ searchValue, setSearchValue }) =>{
+const SearchBar = ({ setSearchValue }) =>{
 
   return (
     <>

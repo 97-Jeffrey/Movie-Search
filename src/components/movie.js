@@ -8,10 +8,10 @@ const Movie = ({ movie }) =>{
 
   return (
     <div key ={movie.imdbID} className="movie">
-      <img src={movie.Poster} className={moviePosterClass}/>
+      <img src={movie.Poster} className={moviePosterClass} alt={movie.Title}/>
       <div className="movie-info-class">
         <div className="movie-title">{movie.Title}</div>
-        <div className="movie-year">{movie.Year}</div>
+        <div className="movie-year">Released In {movie.Year}</div>
         <div className="movie-type">Type: {movie.Type}</div> 
 
         <div 
