@@ -15,9 +15,6 @@ function App() {
       axios.get(`http://www.omdbapi.com/?s=${searchValue}&apikey=bdedf3e0`)
       .then(res=>{
         console.log(res)
-        if(res.data.Response ==='False'){
-          return
-        }
         if(res.data.Search){
           setMovies(res.data.Search)
         }

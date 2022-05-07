@@ -4,7 +4,7 @@ import Movie from './movie';
 const Movies = ({ movies }) =>{
 
   return (
-    <div>
+    <div className="movies">
       {movies.map((movie, index)=>{
         return (
           <Movie

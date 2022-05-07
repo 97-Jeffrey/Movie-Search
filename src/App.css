@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #181725;
   min-height: 100vh;
+  position: static;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -10,34 +11,11 @@
   }
 }
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-/* .App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 .search {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* margin-top: 50px; */
 }
 
 .search__form {
@@ -59,10 +37,10 @@ input:focus {
 input[type="text"] {
   background-color: #201f2f;
   border: 0;
-  padding: 0.5rem 0.5rem 0.5rem 3rem;
+  padding: 1.5rem 1.5rem 1.5rem 5rem;
   color: #6b7986;
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-weight: 800;
+  font-size: 2rem;
   width: 100%;
   background-image: url("/public/images//search.png");
   background-repeat: no-repeat;
@@ -73,4 +51,76 @@ input[type="text"] {
 input[type="text"]:focus {
   background-color: #e6e6e6;
   color: #201f2f;
+}
+
+.movies {
+  margin-top: 50px;
+}
+
+.movie {
+  display: flex;
+  color: #fefefe;
+  margin-bottom: 1rem;
+}
+
+.movie-Poster {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.movie-error {
+  height: 400px;
+  width: 300px;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  background: url("/public/images/images_error.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.movie-info-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding-left: 2rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background: #201f2f;
+  overflow: hidden;
+}
+
+.movie-info-class:hover {
+  background: rgba(207, 13, 65, 0.4);
+}
+
+.movie-title {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.movie-year {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.movie-button {
+  font-size: large;
+  font-weight: 700;
+  width: "300px";
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  border-radius: 10px;
+  padding: 10px;
+  border-style: none;
+}
+
+.movie-button:hover {
+  cursor: pointer;
+  /* color: black; */
+  /* background-color: #f40; */
 }
