@@ -1,11 +1,7 @@
 .App {
   text-align: center;
-  background-color: #282c34;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-color: #181725;
+  min-height: 100vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,7 +10,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -23,9 +19,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
 }
 
@@ -36,4 +32,45 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search__form {
+  flex-grow: 1;
+}
+
+.radius {
+  border-radius: 0.5rem;
+}
+
+input {
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="text"] {
+  background-color: #201f2f;
+  border: 0;
+  padding: 0.5rem 0.5rem 0.5rem 3rem;
+  color: #6b7986;
+  font-weight: 700;
+  font-size: 1.5rem;
+  width: 100%;
+  background-image: url("/public/images//search.png");
+  background-repeat: no-repeat;
+  background-size: auto 50%;
+  background-position: 1rem 50%;
+}
+
+input[type="text"]:focus {
+  background-color: #e6e6e6;
+  color: #201f2f;
 }
