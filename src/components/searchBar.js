@@ -5,7 +5,6 @@ const SearchBar = ({ setSearchValue }) =>{
   return (
     <>
       <section className="search">
-        <form action="" className='search__form'>
           <input
             className="radius"
             type="text"
@@ -14,7 +13,6 @@ const SearchBar = ({ setSearchValue }) =>{
             onChange={e=>setSearchValue(e.target.value)}
           >
           </input>
-        </form>
       </section>
     </>
   )

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Movies from './components/movies';
 import SearchBar from './components/searchBar';
+import Notify from './components/notify';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
     try{
       const res =  await axios.get(`http://www.omdbapi.com/?s=${searchValue}&apikey=bdedf3e0`);
       if(res.data.Search){
+        console.log(res)
         setMovies(res.data.Search)
       }
     }
@@ -35,7 +37,8 @@ function App() {
         searchValue={searchValue}
         setSearchValue={setSearchValue}
       />
-      <Movies movies={movies} />
+      {searchValue && <Movies movies={movies} />}
+      {!searchValue && <Notify/> }
     </div>
   );
 }

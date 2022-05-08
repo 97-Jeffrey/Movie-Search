@@ -4,11 +4,17 @@ import React, { useState } from "react";
 const Movie = ({ movie }) =>{
 
   const [movieOpen, setMovieOpen] = useState(false)
-  const moviePosterClass = movie.Poster==='N/A'? "movie-error":"movie-Poster";
 
   return (
     <div key ={movie.imdbID} className="movie">
-      <img src={movie.Poster} className={moviePosterClass} alt={movie.Title}/>
+      {
+        movie.Poster==='N/A'?
+          <div className="movie-error"/>:
+          <img src={movie.Poster} 
+            className="movie-Poster" 
+            alt={movie.Title}
+          />
+      }
       <div className="movie-info-class">
         <div className="movie-title">{movie.Title}</div>
         <div className="movie-year">Released In {movie.Year}</div>
@@ -18,10 +24,10 @@ const Movie = ({ movie }) =>{
           className="movie-button" 
           onClick={()=>setMovieOpen(!movieOpen)}
         >
-          {movieOpen?"Hide Movie Id ":"Display Movie Id"} 
+          {movieOpen? <div>Hide Movie Id: &nbsp;{movie.imdbID}</div> :"Display Movie Id"} 
         </div>
 
-        {movieOpen && <div>{movie.imdbID}</div>}
+        {/* {movieOpen && <div>{movie.imdbID}</div>} */}
       </div>
       
     </div>
