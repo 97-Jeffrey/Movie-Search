@@ -4,6 +4,7 @@ import axios from 'axios';
 import Movies from './components/movies';
 import SearchBar from './components/searchBar';
 import Notify from './components/notify';
+import Header from './components/header';
 
 import './App.css';
 
@@ -32,14 +33,20 @@ function App() {
   },[searchValue])
 
   return (
-    <div className="App">
-      <SearchBar  
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-      {searchValue && <Movies movies={movies} />}
-      {!searchValue && <Notify/> }
-    </div>
+    <>
+      
+      <div className="App">
+        <Header />
+        <SearchBar  
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
+        { searchValue? 
+          <Movies movies={movies} /> : 
+          <Notify/> 
+        }
+      </div>
+    </>
   );
 }
 
