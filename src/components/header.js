@@ -6,7 +6,7 @@ const Header = () =>{
   return (
     <>
       <div className="header">
-        Moive Freak
+        Movie Freak
       </div>
     </>
   )
