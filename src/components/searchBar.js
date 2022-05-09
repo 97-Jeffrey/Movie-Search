@@ -7,6 +7,7 @@ const SearchBar = ({ setSearchValue }) =>{
       <section className="search">
           <input
             className="radius"
+            data-testid="search-input"
             type="text"
             placeholder='Search Movie Name'
             name='Search'
