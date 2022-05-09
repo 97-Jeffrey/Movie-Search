@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
+//styling:
+import '../style/movie.css'
 
-const Movie = ({ movie }) =>{
+const Movie = ({ movie, key }) =>{
 
   const [movieOpen, setMovieOpen] = useState(false)
 
   return (
-    <div key ={movie.imdbID} className="movie">
+    <div key ={key} className="movie">
       {
         movie.Poster==='N/A'?
           <div className="movie-error"/>:
