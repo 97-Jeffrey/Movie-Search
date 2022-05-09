@@ -14,25 +14,29 @@
 
 Please clone this Project by
 
-### `git clone ` + { `project Git link Above` }
+### `git clone ` + { `project Git link ` }
 
+<br>
 <br>
 
 Install all dependencies/libraries, run
 
 ### `npm install`
 
+In the root folde
+<br>
 <br>
 
 To Start this project, run
 
 ### `npm start`
 
-Runs the app in the development mode.\
+in root folder, which runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.
 
+<br>
 <br>
 To Run test files in this project,  run
 
