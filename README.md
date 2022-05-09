@@ -23,7 +23,7 @@ Install all dependencies/libraries, run
 
 ### `npm install`
 
-In the root folde
+In the root folder
 <br>
 <br>
 
