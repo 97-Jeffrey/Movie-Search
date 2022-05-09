@@ -42,4 +42,4 @@ To Run test files in this project,  run
 
 ### `npm run test`
 
-in the project root folder
+in the project root folder, there are six testing cases right now.
