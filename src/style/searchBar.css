@@ -8,11 +8,8 @@
   margin-right: auto;
 }
 
-.radius {
-  border-radius: 1rem;
-}
-
 input {
+  border-radius: 1rem;
   margin: 0;
 }
 

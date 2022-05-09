@@ -8,9 +8,8 @@ const SearchBar = ({ setSearchValue }) =>{
 
   return (
     <>
-      <section className="search">
+      <div className="search">
           <input
-            className="radius"
             data-testid="search-input"
             type="text"
             placeholder='Search Movie Name'
@@ -18,7 +17,7 @@ const SearchBar = ({ setSearchValue }) =>{
             onChange={e=>setSearchValue(e.target.value)}
           >
           </input>
-      </section>
+      </div>
     </>
   )
 }
