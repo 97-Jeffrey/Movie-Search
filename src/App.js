@@ -10,6 +10,7 @@ import Header from './components/header';
 // styling:
 import './App.css';
 
+// Helper functions:
 import { returnUrl } from './config';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
 
   const getMovies = async searchValue =>{
-    
+
     try{
       const res =  await axios.get(returnUrl(searchValue));
       if(res.data.Search){
