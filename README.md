@@ -1,6 +1,6 @@
-# This is A Dynamic Movie Search App Implemented By React
+# This is A Dynamic Movie Search App Implemented In React.js
 
-## Tools Used:
+## Languages/Tools Used:
 
 1. React.js
 2. JavaScript
@@ -14,12 +14,12 @@
 
 Please clone this Project by
 
-### `git clone ` + { `project Git link ` }
+### `git clone ` + { `project Git Url ` }
 
 <br>
 <br>
 
-Install all dependencies/libraries, run
+To Install dependencies/libraries, run
 
 ### `npm install`
 
