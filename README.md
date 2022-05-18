@@ -12,6 +12,12 @@
 
 ## Available Scripts
 
+## Screenshots for the App:
+
+![empty](https://github.com/97-Jeffrey/Movie-Search/blob/master/Doc/Screen%20Shot%202022-05-18%20at%203.06.55%20PM.png?raw=true)
+
+![avengers](https://github.com/97-Jeffrey/Movie-Search/blob/master/Doc/Screen%20Shot%202022-05-18%20at%203.07.52%20PM.png?raw=true)
+
 Please clone this Project by
 
 ### `git clone ` + { `project Git Url ` }
