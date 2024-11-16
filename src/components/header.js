@@ -8,7 +8,10 @@ const Header = () =>{
   return (
     <>
       <div className="header">
-        Movie Freak
+        <div className='header-title'>Movie Freak</div>
+        <div className='header-categories'>
+          <div>About</div>
+        </div>
       </div>
     </>
   )
