@@ -11,10 +11,11 @@ import Header from './components/header';
 import './App.css';
 
 // Helper functions:
-import { returnUrl } from './config';
+import { returnUrl } from './utils/getUrl';
 
 function App() {
 
+  console.log(process.env.OMDB_API_KEY)
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
