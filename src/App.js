@@ -12,7 +12,7 @@ import Header from './components/header';
 import './App.css';
 
 // Helper functions:
-import { getQueryUrl } from './utils/getUrl';
+import { queryUrl } from './utils/getUrl';
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
   const getMovies = async searchValue =>{
 
     try{
-      const res =  await axios.get(getQueryUrl(searchValue, searchCategory));
+      const res =  await axios.get(queryUrl(searchValue, searchCategory));
       if(res.data.Search){
         setMovies(res.data.Search)
       }
