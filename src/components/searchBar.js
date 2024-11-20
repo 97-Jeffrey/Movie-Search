@@ -9,7 +9,6 @@ import TypeSearch from './Search/TypeSearch';
 
 const SearchBar = ({ searchCategory, setSearchValue, setSearchCategory }) =>{
 
-
   return (
     <>
       <div className="search">
