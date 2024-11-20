@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
 //components:
 import Movies from './components/movies';
 import SearchBar from './components/searchBar';
@@ -11,18 +12,18 @@ import Header from './components/header';
 import './App.css';
 
 // Helper functions:
-import { returnUrl } from './utils/getUrl';
+import { getQueryUrl } from './utils/getUrl';
 
 function App() {
 
-  console.log(process.env.OMDB_API_KEY)
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [searchCategory, setSearchCategory]= useState('movie')
 
   const getMovies = async searchValue =>{
 
     try{
-      const res =  await axios.get(returnUrl(searchValue));
+      const res =  await axios.get(getQueryUrl(searchValue, searchCategory));
       if(res.data.Search){
         setMovies(res.data.Search)
       }
@@ -36,7 +37,7 @@ function App() {
   useEffect(()=>{
     getMovies(searchValue)
 
-  },[searchValue])
+  },[searchValue, searchCategory])
 
   return (
     <>
@@ -44,7 +45,9 @@ function App() {
       <div className="App">
         <Header />
         <SearchBar  
+          searchCategory={searchCategory}
           setSearchValue={setSearchValue}
+          setSearchCategory={setSearchCategory}
         />
         { searchValue? 
           <Movies movies={movies} /> : 
