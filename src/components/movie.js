@@ -26,7 +26,11 @@ const Movie = ({ movie, key }) =>{
           className="movie-button" 
           onClick={()=>setMovieOpen(!movieOpen)}
         >
-          {movieOpen? <div>Hide Movie Id: &nbsp;{movie.imdbID}</div> :"Display Movie Id"} 
+          {
+          movieOpen? 
+            <div>Hide {movie.Type} Id: &nbsp;{movie.imdbID}</div> :
+            <div>Display {movie.Type} Id</div>
+          } 
         </div>
 
         {/* {movieOpen && <div>{movie.imdbID}</div>} */}

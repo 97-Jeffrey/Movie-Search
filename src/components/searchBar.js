@@ -1,10 +1,11 @@
 import React from 'react';
 
 import TitleSearch from './Search/TitleSearch';
+import TypeSearch from './Search/TypeSearch';
 
 //styling:
 import '../style/searchBar.css'
-import TypeSearch from './Search/TypeSearch';
+
 
 
 const SearchBar = ({ searchCategory, setSearchValue, setSearchCategory }) =>{
