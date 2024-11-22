@@ -25,6 +25,7 @@ function App() {
     try{
       const res =  await axios.get(queryUrl(searchValue, searchCategory));
       if(res.data.Search){
+        console.log('res', res.data.Search)
         setMovies(res.data.Search)
       }
     }
