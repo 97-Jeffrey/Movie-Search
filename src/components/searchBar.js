@@ -2,13 +2,20 @@ import React from 'react';
 
 import TitleSearch from './Search/TitleSearch';
 import TypeSearch from './Search/TypeSearch';
+import YearSearch from './Search/YearSearch';
 
 //styling:
 import '../style/searchBar.css'
 
 
 
-const SearchBar = ({ searchCategory, setSearchValue, setSearchCategory }) =>{
+const SearchBar = ({ 
+  searchCategory, 
+  setSearchValue, 
+  setSearchCategory,
+  searchYear,
+  setSearchYear
+}) =>{
 
   return (
     <>
@@ -19,6 +26,10 @@ const SearchBar = ({ searchCategory, setSearchValue, setSearchCategory }) =>{
           <TypeSearch 
             searchCategory={searchCategory}
             setSearchCategory={setSearchCategory}
+          />
+          <YearSearch
+             searchYear={searchYear}
+             setSearchYear={setSearchYear}
           />
       </div>
     </>
