@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import { movieTypes } from '../../constant/movieTypes';
+import { movieTypes } from '../../constant/movie';
 import { firstLetterUpper } from '../../utils/firstLetterUpper';
 
 const TypeSearch = ({  searchCategory, setSearchCategory }) => {

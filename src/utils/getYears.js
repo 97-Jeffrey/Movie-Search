@@ -1,4 +1,4 @@
-import { firstMovieYear } from "../constant/movieTypes";
+import { firstMovieYear } from "../constant/movie";
 
 export const getYears = ()=> {
     const currentYear = new Date().getFullYear();
