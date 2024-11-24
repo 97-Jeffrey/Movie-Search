@@ -3,11 +3,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { getYears } from '../../utils/getYears';
 
-const YearSearch = ({  searchYear, setSearchYear }) => {
+const YearSearch = ({ year, setYear }) => {
 
     const years = getYears()
     const changeMovieYear= year =>{
-        setSearchYear(year)
+        setYear(year)
     }
     
     return (
@@ -15,17 +15,17 @@ const YearSearch = ({  searchYear, setSearchYear }) => {
             <Dropdown.Toggle 
                 id="dropdown-button-dark" 
                 >
-               {searchYear}
+               {year}
             </Dropdown.Toggle>
 
             <Dropdown.Menu className='dropdown-year-options'>
-              {years.map((year, index)=>(
+              {years.map((eachYear, index)=>(
                 <Dropdown.Item 
                   key={index} 
-                  onClick={()=>changeMovieYear(year)}
-                  active={year === searchYear}
+                  onClick={()=>changeMovieYear(eachYear)}
+                  active={eachYear === year}
                 >
-                  {year}
+                  {eachYear}
                 </Dropdown.Item>
               ))}
               

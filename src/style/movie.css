@@ -9,8 +9,9 @@
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   height: 400px;
-  width: 400px;
+  width: 400px; 
   overflow: hidden;
+  /* object-fit:contain */
 }
 
 .movie-error {

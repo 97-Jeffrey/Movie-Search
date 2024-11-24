@@ -10,26 +10,26 @@ import '../style/searchBar.css'
 
 
 const Search = ({ 
-  searchCategory, 
-  setSearchValue, 
-  setSearchCategory,
-  searchYear,
-  setSearchYear
+  type, 
+  year,
+  setTitle, 
+  setType,
+  setYear
 }) =>{
 
   return (
     <>
       <div className="search">
           <TitleSearch 
-            setSearchValue={setSearchValue}
+            setTitle={setTitle}
           />
           <TypeSearch 
-            searchCategory={searchCategory}
-            setSearchCategory={setSearchCategory}
+            type={type}
+            setType={setType}
           />
           <YearSearch
-             searchYear={searchYear}
-             setSearchYear={setSearchYear}
+             year={year}
+             setYear={setYear}
           />
       </div>
     </>
