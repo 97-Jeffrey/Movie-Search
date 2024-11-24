@@ -7,6 +7,7 @@
 3. HTML
 4. CSS
 5. React Testing Library /Jest
+6. Bootstrap
 
 <br>
 

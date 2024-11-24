@@ -9,7 +9,7 @@ import '../style/searchBar.css'
 
 
 
-const SearchBar = ({ 
+const Search = ({ 
   searchCategory, 
   setSearchValue, 
   setSearchCategory,
@@ -38,4 +38,4 @@ const SearchBar = ({
 
 
 
-export default SearchBar;
+export default Search;
