@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //styling:
-import '../style/movie.css'
+import '../../style/movie.css'
 
 const Movie = ({ movie, key }) =>{
 

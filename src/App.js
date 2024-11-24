@@ -3,8 +3,8 @@ import axios from 'axios';
 
 
 //components:
-import Movies from './components/movies';
-import SearchBar from './components/searchBar';
+import Movies from './components/Movie/movies';
+import Search from './components/search';
 import Notify from './components/notify';
 import Header from './components/header';
 
@@ -21,7 +21,7 @@ function App() {
   const [searchCategory, setSearchCategory]= useState('movie')
   const [searchYear, setSearchYear] = useState(2024)
 
-  const getMovies = async searchValue =>{
+  const getMovies = async () =>{
 
     try{
       const res =  await axios.get(queryUrl(searchValue, searchCategory, searchYear));
@@ -37,7 +37,7 @@ function App() {
   }
 
   useEffect(()=>{
-    getMovies(searchValue)
+    getMovies()
 
   },[searchValue, searchCategory, searchYear])
 
@@ -46,7 +46,7 @@ function App() {
       
       <div className="App">
         <Header />
-        <SearchBar  
+        <Search  
           searchCategory={searchCategory}
           setSearchValue={setSearchValue}
           setSearchCategory={setSearchCategory}

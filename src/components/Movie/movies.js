@@ -4,7 +4,7 @@ import React from "react";
 import Movie from './movie';
 
 //styling:
-import "../style/movies.css"
+import "../../style/movies.css"
 
 const Movies = ({ movies }) =>{
 
