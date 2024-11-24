@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 
 //components:
@@ -11,35 +10,26 @@ import Header from './components/header';
 // styling:
 import './App.css';
 
-// Helper functions:
-import { queryUrl } from './utils/getUrl';
+//hooks:
+import useMovie from './hooks/useMovie';
+
+import { noResult, noTitle } from './constant/notification';
 
 function App() {
 
-  const [movies, setMovies] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
-  const [searchCategory, setSearchCategory]= useState('movie')
-  const [searchYear, setSearchYear] = useState(2024)
 
-  const getMovies = async () =>{
+  const { 
+    movies,
+    title,
+    year,
+    type,
+    setTitle,
+    setType,
+    setYear
+  }= useMovie()
 
-    try{
-      const res =  await axios.get(queryUrl(searchValue, searchCategory, searchYear));
-      if(res.data.Search){
-        console.log('res', res.data.Search)
-        setMovies(res.data.Search)
-      }
-    }
-    catch(err){
-      throw err;
-    }
-    
-  }
 
-  useEffect(()=>{
-    getMovies()
 
-  },[searchValue, searchCategory, searchYear])
 
   return (
     <>
@@ -47,16 +37,21 @@ function App() {
       <div className="App">
         <Header />
         <Search  
-          searchCategory={searchCategory}
-          setSearchValue={setSearchValue}
-          setSearchCategory={setSearchCategory}
-          searchYear={searchYear}
-          setSearchYear={setSearchYear}
+          title={title}
+          type={type}
+          year={year}
+          setTitle={setTitle}
+          setType={setType}
+          setYear={setYear}
           
         />
-        { searchValue? 
+        {
+          movies.length && title? 
           <Movies movies={movies} /> : 
-          <Notify/> 
+          title?
+          <Notify text={noResult}/> :
+          <Notify text={noTitle}/> 
+      
         }
       </div>
     </>

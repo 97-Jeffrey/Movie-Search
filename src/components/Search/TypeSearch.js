@@ -4,10 +4,10 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { movieTypes } from '../../constant/movie';
 import { firstLetterUpper } from '../../utils/firstLetterUpper';
 
-const TypeSearch = ({  searchCategory, setSearchCategory }) => {
+const TypeSearch = ({  type, setType }) => {
 
-    const changeMovieType= category =>{
-        setSearchCategory(category)
+    const changeMovieType= type =>{
+        setType(type)
     }
     
     return (
@@ -15,17 +15,17 @@ const TypeSearch = ({  searchCategory, setSearchCategory }) => {
             <Dropdown.Toggle 
                 id="dropdown-button-dark" 
                 >
-               {firstLetterUpper(searchCategory)}
+               {firstLetterUpper(type)}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              {movieTypes.map((type, index)=>(
+              {movieTypes.map((typ, index)=>(
                 <Dropdown.Item 
                   key={index} 
                   onClick={()=>changeMovieType(type)}
-                  active={type === searchCategory}
+                  active={typ === type}
                 >
-                  {firstLetterUpper(type)}
+                  {firstLetterUpper(typ)}
                 </Dropdown.Item>
               ))}
               
