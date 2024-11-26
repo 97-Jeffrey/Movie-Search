@@ -22,7 +22,7 @@ const TypeSearch = ({  type, setType }) => {
               {movieTypes.map((typ, index)=>(
                 <Dropdown.Item 
                   key={index} 
-                  onClick={()=>changeMovieType(type)}
+                  onClick={()=>changeMovieType(typ)}
                   active={typ === type}
                 >
                   {firstLetterUpper(typ)}
