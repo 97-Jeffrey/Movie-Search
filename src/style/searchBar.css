@@ -45,6 +45,19 @@ input[type="text"]:focus {
   border-radius:16px
 }
 
+#dropdown-button-header{
+  height:80px;
+  width:200px;
+  background-color:#33314e;
+  outline:none;
+  border:none;
+  border-radius:16px
+}
+
+/* #dropdown-button-header .dropdown-toggle::after{
+  margin-left: 0.555em 
+} */
+
 .dropdown-year-options{
   height: 200px;
   overflow-y: scroll;

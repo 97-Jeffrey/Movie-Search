@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 //components:
@@ -28,6 +28,8 @@ function App() {
     setYear
   }= useMovie()
 
+  const [searchMovieBy, setSearchMovieBy] = useState('title')
+
 
 
 
@@ -35,7 +37,11 @@ function App() {
     <>
       
       <div className="App">
-        <Header />
+        <Header 
+          searchMovieBy={searchMovieBy}
+          setSearchMovieBy={setSearchMovieBy}
+        />
+
         <Search  
           title={title}
           type={type}
