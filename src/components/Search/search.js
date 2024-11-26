@@ -4,6 +4,7 @@ import TitleSearch from './TitleSearch';
 import TypeSearch from './TypeSearch';
 import YearSearch from './YearSearch';
 
+
 //styling:
 import '../../style/searchBar.css'
 
