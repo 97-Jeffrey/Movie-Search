@@ -3,7 +3,7 @@ import React from 'react';
 
 //components:
 import Movies from './components/Movie/movies';
-import Search from './components/search';
+import Search from './components/Search/search';
 import Notify from './components/notify';
 import Header from './components/header';
 
