@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 //components:
 import Movies from './components/Movie/movies';
 import Search from './components/Search/search';
