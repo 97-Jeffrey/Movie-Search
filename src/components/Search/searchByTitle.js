@@ -1,22 +1,34 @@
 import React from 'react';
 
+// components:
 import TitleSearch from './TitleSearch';
 import TypeSearch from './TypeSearch';
 import YearSearch from './YearSearch';
+import Notify from '../notify';
+import Movies from '../Movie/movies';
 
+//hooks:
+import useMovies from '../../hooks/useMovies';
+
+import { noResult, noTitle } from '../../constant/notification';
 
 //styling:
 import '../../style/searchBar.css'
 
 
 
-const SearchByTitle = ({ 
-  type, 
-  year,
-  setTitle, 
-  setType,
-  setYear
-}) =>{
+const SearchByTitle = () =>{
+
+
+  const { 
+    title,
+    movies,
+    year,
+    type,
+    setTitle,
+    setType,
+    setYear
+  }= useMovies()
 
   return (
     <>
@@ -33,6 +45,15 @@ const SearchByTitle = ({
              setYear={setYear}
           />
       </div>
+
+      <Movies movies={movies}/>
+
+
+      { 
+        movies.length ? 
+        <Movies movies={movies} /> : 
+        <Notify text={title? noResult: noTitle}/>
+      }
     </>
   )
 }
