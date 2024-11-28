@@ -1,36 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from "react"
+import getMovie from "../api/movie/getMovie"
 
-// Fetch API:
-import getMovies from '../api/movie/getMovies';
+const useMovie = (movieId) =>{
 
-const useMovie = () =>{
-     
-    const [movies, setMovies] = useState([]);
-    const [title, setTitle] = useState('');
-    const [type, setType]= useState('movie');
-    const [year, setYear] = useState(2024);
+    const [movie, setMovie] = useState({
+       
+    })
+
 
     useEffect(()=>{
-         getMovies(title, type, year)
-         .then(res=>{
-            setMovies(res)
+        getMovie(movieId).then(res=>{
+            setMovie(res)
          })
-        
-    
-    },[title, type, year])
+    },[movieId])
+
+
 
 
     return {
-        movies,
-        title,
-        type,
-        year,
-        setTitle,
-        setType,
-        setYear
-
-
+       movie
     }
 }
+
 
 export default useMovie

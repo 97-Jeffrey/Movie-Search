@@ -20,7 +20,7 @@ const Header = ({ searchMovieBy, setSearchMovieBy }) =>{
             <Dropdown.Toggle 
                 id="dropdown-button-header" 
                 >
-               Search Movie By
+               Search Movie By {searchMovieBy}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>

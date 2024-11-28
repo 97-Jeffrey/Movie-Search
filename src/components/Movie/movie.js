@@ -3,12 +3,12 @@ import React, { useState } from "react";
 //styling:
 import '../../style/movie.css'
 
-const Movie = ({ movie, key }) =>{
+const Movie = ({ movie }) =>{
 
   const [movieOpen, setMovieOpen] = useState(false)
 
   return (
-    <div key ={key} className="movie">
+    <div className="movie">
       {
         movie.Poster==='N/A'?
           <div className="movie-error"/>:
