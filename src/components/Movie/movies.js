@@ -10,10 +10,10 @@ const Movies = ({ movies }) =>{
 
   return (
     <div className="movies">
-      {movies.map((movie, index)=>{
+      {movies.map((movie)=>{
         return (
           <Movie
-            key={index}
+            key={movie.imdbID}
             movie={movie}
           />
         )
