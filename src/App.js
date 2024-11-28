@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-
 //components:
 import Movies from './components/Movie/movies';
-import Search from './components/Search/search';
+import SearchByTitle from './components/Search/searchByTitle';
+import SearchById from './components/Search/searchById';
 import Notify from './components/notify';
 import Header from './components/header';
 
@@ -11,7 +11,7 @@ import Header from './components/header';
 import './App.css';
 
 //hooks:
-import useMovie from './hooks/useMovie';
+import useMovies from './hooks/useMovies';
 
 import { noResult, noTitle } from './constant/notification';
 
@@ -26,7 +26,7 @@ function App() {
     setTitle,
     setType,
     setYear
-  }= useMovie()
+  }= useMovies()
 
   const [searchMovieBy, setSearchMovieBy] = useState('title')
 
@@ -42,22 +42,26 @@ function App() {
           setSearchMovieBy={setSearchMovieBy}
         />
 
-        <Search  
-          title={title}
-          type={type}
-          year={year}
-          setTitle={setTitle}
-          setType={setType}
-          setYear={setYear}
-          
-        />
         {
+          searchMovieBy ==='title'?
+          <SearchByTitle  
+            title={title}
+            type={type}
+            year={year}
+            setTitle={setTitle}
+            setType={setType}
+            setYear={setYear}
+          />
+            :
+          <SearchById />
+        }
+
+        { 
           movies.length && title? 
           <Movies movies={movies} /> : 
           title?
           <Notify text={noResult}/> :
           <Notify text={noTitle}/> 
-      
         }
       </div>
     </>

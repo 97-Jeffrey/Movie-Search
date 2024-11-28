@@ -10,7 +10,7 @@ import '../../style/searchBar.css'
 
 
 
-const Search = ({ 
+const SearchByTitle = ({ 
   type, 
   year,
   setTitle, 
@@ -39,4 +39,4 @@ const Search = ({
 
 
 
-export default Search;
+export default SearchByTitle;
