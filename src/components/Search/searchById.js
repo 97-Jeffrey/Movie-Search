@@ -7,7 +7,7 @@ const SearchById = () =>{
 
     const [id, setId] = useState('')
     const { movie, error } = useMovie(id)
-    console.log('error', error)
+  
     return (
         <>
             <div className="search">
