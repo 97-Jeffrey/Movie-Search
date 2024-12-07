@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import IdSearch from './IdSearch';
 import useMovie from '../../hooks/useMovie';
-import MovieDetail from '../Movie/movieDetail';
+import Movie from '../Movie/movie';
 
 const SearchById = () =>{
 
@@ -19,7 +19,7 @@ const SearchById = () =>{
             {    
                 id 
                    &&
-                <MovieDetail movie={movie}/>
+                <Movie movie={movie}/>
             }
         </>
     )
