@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //styling:
 import '../../style/movie.css'
@@ -6,9 +8,15 @@ import '../../style/movie.css'
 const Movie = ({ movie }) =>{
 
   const [movieOpen, setMovieOpen] = useState(false)
+  const navigate = useNavigate();
+
+  const goToMovie = () => {
+    navigate(`/movies/${movie.imdbID}`);
+  };
 
   return (
-    <div className="movie">
+    <div className="movie" onClick={goToMovie}>
+      
       {
         movie.Poster==='N/A'?
           <div className="movie-error"/>:
@@ -35,6 +43,7 @@ const Movie = ({ movie }) =>{
 
         {/* {movieOpen && <div>{movie.imdbID}</div>} */}
       </div>
+
       
     </div>
   )
