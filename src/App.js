@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-//components:
-import SearchByTitle from './components/Search/searchByTitle';
-import SearchById from './components/Search/searchById';
-import Header from './components/header';
+//pages:
+import Home from './page/home';
+import Movie from './page/movie'
+
+import { Routes, Route } from "react-router-dom";
 
 // styling:
 import './App.css';
@@ -11,8 +12,10 @@ import './App.css';
 function App() {
 
 
+ 
 
-  const [searchMovieBy, setSearchMovieBy] = useState('title')
+
+
 
 
 
@@ -20,20 +23,11 @@ function App() {
   return (
     <>
       
-      <div className="App">
-        <Header 
-          searchMovieBy={searchMovieBy}
-          setSearchMovieBy={setSearchMovieBy}
-        />
-
-        {
-          searchMovieBy ==='title'?
-          <SearchByTitle/>
-            :
-          <SearchById />
-        }
-
-      </div>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/movies/:id" element={<Movie />} />
+        {/* <Route path="*" element={<NotFound />} />  */}
+      </Routes>
     </>
   );
 }
