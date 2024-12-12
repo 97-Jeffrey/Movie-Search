@@ -3,6 +3,7 @@
   display: flex;
   color: #fefefe;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .movie-detail {
