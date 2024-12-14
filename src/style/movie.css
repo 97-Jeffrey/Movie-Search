@@ -6,13 +6,6 @@
   cursor: pointer;
 }
 
-.movie-detail {
-  margin-top: 50px;
-  flex-grow: 2;
-  display: flex;
-  color: #fefefe;
-  margin-bottom: 1rem;
-}
 
 .movie-Poster {
   border-top-left-radius: 0.5rem;
@@ -22,13 +15,7 @@
   overflow: hidden;
   /* object-fit:contain */
 }
-.movie-detail-poster{
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  /* height: 400px;
-  width: 400px;  */
-  object-fit: contain;
-}
+
 
 .movie-error {
   height: 400px;
@@ -73,26 +60,7 @@
   margin-bottom: 20px;
 }
 
-.movie-detail-basic-info-container{
-  display: flex;
-  flex-direction: row;
-  padding:20px;
-  gap:20px
 
-}
-
-.movie-detail-basic-info{
-  
-  width:50%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 5px solid rgb(233, 75, 128);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; 
-  align-items: start;
-
-}
 
 .movie-detail-plot-container{
   display: flex; 
