@@ -5,14 +5,19 @@ const useMovie = (movieId) =>{
 
     const [movie, setMovie] = useState({})
     const [error, setError] =useState(false)
+    const [loading, setLoading] = useState(false)
 
 
     useEffect(()=>{
+        setLoading(true)
         getMovie(movieId).then(res=>{
             console.log('res', res)
             if(res.err){
+                setLoading(false)
                 setError(res.err)
+                
             }else{
+                setLoading(false)
                 setMovie(res)
             }
 
@@ -24,7 +29,8 @@ const useMovie = (movieId) =>{
 
     return {
        movie,
-       error
+       error,
+       loading
     }
 }
 
