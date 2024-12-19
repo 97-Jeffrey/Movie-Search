@@ -1,4 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
+
+// context
+import { MovieTitleContext,  } from './context/title';
 
 //pages:
 import Home from './page/home';
@@ -11,15 +15,18 @@ import './App.css';
 
 function App() {
 
+  const [title, setTitle] = useState('')
+
 
   return (
     <>
-      
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/movies/:id" element={<Movie />} />
-        {/* <Route path="*" element={<NotFound />} />  */}
-      </Routes>
+      <MovieTitleContext.Provider value={{ title, setTitle }}>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/movies/:id" element={<Movie />} />
+          {/* <Route path="*" element={<NotFound />} />  */}
+        </Routes>
+      </MovieTitleContext.Provider>
     </>
   );
 }

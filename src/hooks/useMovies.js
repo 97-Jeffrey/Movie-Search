@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 // Fetch API:
 import getMovies from '../api/movie/getMovies';
 
-const useMovies = () =>{
+const useMovies = (title, setTitle) =>{
      
     const [movies, setMovies] = useState([]);
-    const [title, setTitle] = useState('');
     const [type, setType]= useState('movie');
     const [year, setYear] = useState(2024);
 

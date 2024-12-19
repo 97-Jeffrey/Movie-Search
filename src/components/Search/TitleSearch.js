@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../style/searchBar.css'
 
-const TitleSearch =({ setTitle })=>{
+const TitleSearch =({title, setTitle })=>{
     return (
         <input
             data-testid="search-input"
@@ -9,6 +9,7 @@ const TitleSearch =({ setTitle })=>{
             placeholder='Search Movie Name'
             name='Search'
             onChange={e=>setTitle(e.target.value)}
+            value={title}
           ></input>
     )
 }
