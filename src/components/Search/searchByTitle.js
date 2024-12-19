@@ -12,7 +12,7 @@ import { useContext } from 'react';
 import useMovies from '../../hooks/useMovies';
 
 // context:
-import { MovieTitleContext } from '../../context/title';
+import { MovieTitleContext } from '../../context/movie';
 
 
 import { noResult, noTitle } from '../../constant/notification';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Context:
-import { MovieIdContext } from '../../context/id';
+import { MovieIdContext } from '../../context/movie';
 import { useContext } from 'react';
 
 // Components:
