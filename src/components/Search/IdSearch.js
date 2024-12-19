@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../style/searchBar.css'
 
-const IdSearch =({ setId })=>{
+const IdSearch =({ id,  setId })=>{
     return (
         <input
             data-testid="search-input"
@@ -9,6 +9,7 @@ const IdSearch =({ setId })=>{
             placeholder='Search Movie Id'
             name='Search'
             onChange={e=>setId(e.target.value)}
+            value={id}
         >
         
         </input>
