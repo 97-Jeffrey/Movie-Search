@@ -7,8 +7,13 @@ import YearSearch from './YearSearch';
 import Notify from '../notify';
 import Movies from '../Movie/movies';
 
-//hooks:
+// hooks:
+import { useContext } from 'react';
 import useMovies from '../../hooks/useMovies';
+
+// context:
+import { MovieTitleContext } from '../../context/movie';
+
 
 import { noResult, noTitle } from '../../constant/notification';
 
@@ -19,21 +24,21 @@ import '../../style/searchBar.css'
 
 const SearchByTitle = () =>{
 
-
+  const { title, setTitle } = useContext(MovieTitleContext)
+ 
   const { 
-    title,
     movies,
     year,
     type,
-    setTitle,
     setType,
     setYear
-  }= useMovies()
+  }= useMovies(title, setTitle)
 
   return (
     <>
       <div className="search">
           <TitleSearch 
+            title={title}
             setTitle={setTitle}
           />
           <TypeSearch 

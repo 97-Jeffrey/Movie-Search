@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+//context:
+import { MovieSearchByContext } from '../context/movie';
+import { useContext } from 'react';
+
 //components:
 import SearchByTitle from '../components/Search/searchByTitle';
 import SearchById from '../components/Search/searchById';
@@ -11,8 +15,8 @@ import '../App.css';
 
 function Home() {
 
+  const { searchMovieBy, setSearchMovieBy } = useContext(MovieSearchByContext)
 
-  const [searchMovieBy, setSearchMovieBy] = useState('title')
 
 
 
