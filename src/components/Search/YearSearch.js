@@ -3,9 +3,16 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 import { getYears } from '../../utils/getYears';
 
-const YearSearch = ({ year, setYear }) => {
+//Context:
+import { useContext } from 'react';
+import { MovieContext } from '../../context/movieContext';
+
+const YearSearch = () => {
+
+    const { year, setYear } = useContext(MovieContext)
 
     const years = getYears()
+    
     const changeMovieYear= year =>{
         setYear(year)
     }

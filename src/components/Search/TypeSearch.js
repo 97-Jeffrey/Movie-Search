@@ -1,10 +1,18 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
+
 import { movieTypes } from '../../constant/movie';
 import { firstLetterUpper } from '../../utils/firstLetterUpper';
 
-const TypeSearch = ({  type, setType }) => {
+//Context: 
+import { useContext } from 'react';
+import { MovieContext } from '../../context/movieContext';
+
+const TypeSearch = () => {
+
+
+    const { type, setType } = useContext(MovieContext);
 
     const changeMovieType= type =>{
         setType(type)

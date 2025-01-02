@@ -12,9 +12,9 @@ import { useContext } from 'react';
 import useMovies from '../../hooks/useMovies';
 
 // context:
-import { MovieTitleContext } from '../../context/movie';
+import { MovieContext } from '../../context/movieContext';
 
-
+// Constants:
 import { noResult, noTitle } from '../../constant/notification';
 
 //styling:
@@ -24,35 +24,21 @@ import '../../style/searchBar.css'
 
 const SearchByTitle = () =>{
 
-  const { title, setTitle } = useContext(MovieTitleContext)
+  const { title } = useContext(MovieContext)
  
-  const { 
-    movies,
-    year,
-    type,
-    setType,
-    setYear
-  }= useMovies(title, setTitle)
+  const { movies }= useMovies()
 
   return (
     <>
+     {/* Movie Search With filters */}
       <div className="search">
-          <TitleSearch 
-            title={title}
-            setTitle={setTitle}
-          />
-          <TypeSearch 
-            type={type}
-            setType={setType}
-          />
-          <YearSearch
-             year={year}
-             setYear={setYear}
-          />
+        <TitleSearch />
+        <TypeSearch />
+        <YearSearch />
       </div>
 
+      {/* Searched Movies */}
       <Movies movies={movies}/>
-
 
       { 
         movies.length ? 
