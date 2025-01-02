@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 //context:
-import { MovieSearchByContext } from '../context/movie';
+import { MovieContext } from '../context/movieContext';
 import { useContext } from 'react';
 
 //components:
@@ -15,20 +15,14 @@ import '../App.css';
 
 function Home() {
 
-  const { searchMovieBy, setSearchMovieBy } = useContext(MovieSearchByContext)
-
-
-
+  const { searchMovieBy } = useContext(MovieContext)
 
 
   return (
     <>
       
       <div className="App">
-        <Header 
-          searchMovieBy={searchMovieBy}
-          setSearchMovieBy={setSearchMovieBy}
-        />
+        <Header />
 
         {
           searchMovieBy ==='title'?

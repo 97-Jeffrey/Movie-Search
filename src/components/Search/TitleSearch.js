@@ -1,7 +1,15 @@
 import React from 'react';
 import '../../style/searchBar.css'
 
-const TitleSearch =({title, setTitle })=>{
+
+// Context:
+import { useContext } from 'react';
+import { MovieContext } from '../../context/movieContext';
+
+
+const TitleSearch = () =>{
+
+    const { title, setTitle } = useContext(MovieContext)
     return (
         <input
             data-testid="search-input"

@@ -1,10 +1,16 @@
 import React from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 
+// Context:
+import { useContext } from "react";
+import { MovieContext } from "../context/movieContext";
+
 //styling:
 import '../style/header.css'
 
-const Header = ({ searchMovieBy, setSearchMovieBy }) =>{
+const Header = () =>{
+
+  const { searchMovieBy, setSearchMovieBy } = useContext(MovieContext)
 
   const toggleSearch = category => {
     setSearchMovieBy(category)

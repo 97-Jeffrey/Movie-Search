@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Context:
-import { MovieIdContext } from '../../context/movie';
+import { MovieContext } from '../../context/movieContext';
 import { useContext } from 'react';
 
 // Components:
@@ -11,7 +11,7 @@ import Movie from '../Movie/movie';
 
 const SearchById = () =>{
 
-    const { id, setId} = useContext(MovieIdContext)
+    const { id, setId} = useContext(MovieContext)
     const { movie, error } = useMovie(id)
   
     return (
