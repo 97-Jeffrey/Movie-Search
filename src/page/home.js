@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-//context:
+// context:
 import { MovieContext } from '../context/movieContext';
 import { useContext } from 'react';
 
-//components:
+// components:
 import SearchByTitle from '../components/Search/searchByTitle';
 import SearchById from '../components/Search/searchById';
 import Header from '../components/header';

@@ -4,6 +4,7 @@ const MovieContext = createContext();
 
 
 const MovieProvider = ({ children }) =>{
+  
     const [title, setTitle] = useState('')
     const [type, setType]= useState('movie');
     const [year, setYear] = useState(2024);
