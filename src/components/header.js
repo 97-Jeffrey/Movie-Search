@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { MovieContext } from "../context/movieContext";
 
 //styling:
-import '../style/header.css'
+import styles from '../style/header.module.css'
+import searchStyle from '../style/searchBar.module.css'
 
 const Header = () =>{
 
@@ -19,12 +20,12 @@ const Header = () =>{
 
   return (
     <>
-      <div className="header">
-        <div className='header-title'>Movie Freak</div>
-        <div className='header-categories'>
+      <div className={styles.header}>
+        <div className={styles.header_title}>Movie Freak</div>
+        <div className={styles.header_categories}>
         <Dropdown data-bs-theme="dark">
             <Dropdown.Toggle 
-                id="dropdown-button-header" 
+                id={searchStyle.dropdown_button_header}
                 >
                Search Movie By {searchMovieBy}
             </Dropdown.Toggle>

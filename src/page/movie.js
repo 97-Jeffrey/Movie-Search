@@ -1,11 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import "../style/moviePage.css"
+import Loading from './loading';
 
+//styling:
+import styles from  "../style/moviePage.module.css"
+
+
+//Hook:
 import useMovie from '../hooks/useMovie';
 
-import Loading from './loading';
 
 
 const Movie  = () =>{
@@ -26,24 +30,24 @@ const Movie  = () =>{
           {
           !loading 
             &&
-          <div className='movie-detail'>
-            <div className='movie-detail-title'>{movie.Title}</div>
-            <div className='movie-date'>Date: {movie.Released}</div>
-            <div className='avatar-container'>
-              <img className='movie-avatar' src={movie.Poster} />
-              <div className='movie-detail-container-1'>
-                <div className='movie-detail-container-small'>
-                    <div className='movie-detail-container-title'>Length</div>
+          <div className={styles.movie_detail}>
+            <div className={styles.movie_detail_title}>{movie.Title}</div>
+            <div className={styles.movie_date}>Date: {movie.Released}</div>
+            <div className={styles.avatar_container}>
+              <img className={styles.movie_avatar} src={movie.Poster} />
+              <div className={styles.movie_detail_container_1}>
+                <div className={styles.movie_detail_container_small}>
+                    <div className={styles.movie_detail_container_title}>Length</div>
                     <div>{movie.Runtime}</div>
                 </div>
 
-                <div className='movie-detail-container-small'>
-                    <div className='movie-detail-container-title'>IMDB Rating</div>
+                <div className={styles.movie_detail_container_small}>
+                    <div className={styles.movie_detail_container_title}>IMDB Rating</div>
                     <div>{movie.imdbRating}</div>
                 </div>
 
-                <div className='movie-detail-container-small'>
-                    <div className='movie-detail-container-title'>Genre</div>
+                <div className={styles.movie_detail_container_small}>
+                    <div className={styles.movie_detail_container_title}>Genre</div>
                     <div>{movie.Genre}</div>
                 </div>
 
@@ -51,24 +55,24 @@ const Movie  = () =>{
               </div>
             </div>
 
-            <div className='movie-plot'>
+            <div className={styles.movie_plot}>
               {movie.Plot}
             </div>
 
-            <div className='movie-personal'>
-              <div className='movie-personal-title'>DIRECTOR</div>
+            <div className={styles.movie_personal}>
+              <div className={styles.movie_personal_title}>DIRECTOR</div>
               <div>{movie.Director}</div>
             </div>
 
-            <div className='movie-personal'>
-              <div className='movie-personal-title'>WRITER</div>
+            <div className={styles.movie_personal}>
+              <div className={styles.movie_personal_title}>WRITER</div>
               <div>{movie.Writer}</div>
             </div>
 
             {movie.Production !== 'N/A' 
                &&
-            <div className='movie-personal'>
-              <div className='movie-personal-title'>PRODUCTIONS</div>
+            <div className={styles.movie_personal}>
+              <div className={styles.movie_personal_title}>PRODUCTIONS</div>
               <div>{movie.Director}</div>
             </div>}
 

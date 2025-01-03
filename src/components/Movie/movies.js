@@ -4,12 +4,12 @@ import React from "react";
 import Movie from './movie';
 
 //styling:
-import "../../style/movies.css"
+import  styles from "../../style/movies.module.css"
 
 const Movies = ({ movies }) =>{
 
   return (
-    <div className="movies">
+    <div className={styles.movies}>
       {movies.map((movie)=>{
         return (
           <Movie

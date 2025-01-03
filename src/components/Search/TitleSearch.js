@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../style/searchBar.css'
+import styles from  '../../style/searchBar.module.css'
 
 
 // Context:
@@ -12,7 +12,7 @@ const TitleSearch = () =>{
     const { title, setTitle } = useContext(MovieContext)
     return (
         <input
-            data-testid="search-input"
+            data-testid={styles.search_input}
             type="text"
             placeholder='Search Movie Name'
             name='Search'

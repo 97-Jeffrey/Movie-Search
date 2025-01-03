@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 //styling:
-import '../../style/movie.css'
+import styles from '../../style/movie.module.css'
 
 const Movie = ({ movie }) =>{
 
-  const [movieOpen, setMovieOpen] = useState(false)
   const navigate = useNavigate();
 
   const goToMovie = () => {
@@ -15,33 +13,22 @@ const Movie = ({ movie }) =>{
   };
 
   return (
-    <div className="movie" onClick={goToMovie}>
+    <div className={styles.movie} onClick={goToMovie}>
       
       {
         movie.Poster==='N/A'?
-          <div className="movie-error"/>:
+          <div className={styles.movie_error}/>:
           <img src={movie.Poster} 
-            className="movie-Poster" 
+            className={styles.movie_poster}
             alt={movie.Title}
           />
       }
-      <div className="movie-info-class">
-        <div className="movie-title">{movie.Title}</div>
-        <div className="movie-year">Released In {movie.Year}</div>
-        <div className="movie-type">Type: {movie.Type}</div> 
+      <div className={styles.movie_info_class}>
+        <div className={styles.movie_title}>{movie.Title}</div>
+        <div className={styles.movie_year}> Released In {movie.Year}</div>
+        <div className={styles.movie_type}> Type: {movie.Type}</div> 
 
-        <div 
-          className="movie-button" 
-          onClick={()=>setMovieOpen(!movieOpen)}
-        >
-          {
-          movieOpen? 
-            <div>Hide {movie.Type} Id: &nbsp;{movie.imdbID}</div> :
-            <div>Display {movie.Type} Id</div>
-          } 
-        </div>
-
-        {/* {movieOpen && <div>{movie.imdbID}</div>} */}
+        
       </div>
 
       

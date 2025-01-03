@@ -37,7 +37,7 @@ input[type="text"]:focus {
   background-color: #e6e6e6;
   color: #33314e;
 }
-#dropdown-button-dark{
+#dropdown_button_dark{
   height:95px;
   width:100px;
   background-color:#33314e;
@@ -46,7 +46,7 @@ input[type="text"]:focus {
   border-radius:16px
 }
 
-#dropdown-button-header{
+#dropdown_button_header{
   height:80px;
   width:200px;
   background-color:#33314e;
@@ -59,7 +59,7 @@ input[type="text"]:focus {
   margin-left: 0.555em 
 } */
 
-.dropdown-year-options{
+.dropdown_year_options{
   height: 200px;
   overflow-y: scroll;
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../style/searchBar.css'
+import styles from '../../style/searchBar.module.css'
 
 const IdSearch =({ id,  setId })=>{
     return (
         <input
-            data-testid="search-input"
+            data-testid={styles.search_input}
             type="text"
             placeholder='Search Movie Id'
             name='Search'

@@ -1,14 +1,18 @@
 
 import Spinner from 'react-bootstrap/Spinner';
-import '../style/loading.css'
+import  styles from '../style/loading.module.css'
 
 const Loading = () =>{
     return(
         <>
-           <div className='page'>
-                <div className='spinner-group'>
-                    <Spinner animation="border" variant='light'className='loading-spinner' />
-                    <div className='loading-text'>Loading Movie Info...</div>
+           <div className={styles.page}>
+                <div className={styles.spinner_group}>
+                    <Spinner 
+                        animation="border" 
+                        variant='light'
+                        className='loading-spinner' 
+                    />
+                    <div className={styles.loading_text}>Loading Movie Info...</div>
                 </div>
            </div>
         </>

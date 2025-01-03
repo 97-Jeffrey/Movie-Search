@@ -7,7 +7,7 @@
 }
 
 
-.movie-Poster {
+.movie_poster {
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   height: 400px;
@@ -17,7 +17,7 @@
 }
 
 
-.movie-error {
+.movie_error {
   height: 400px;
   width: 400px;
   border-top-left-radius: 0.5rem;
@@ -29,7 +29,7 @@
   background-size: cover;
 }
 
-.movie-info-class {
+.movie_info_class {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,22 +39,9 @@
   border-bottom-right-radius: 0.5rem;
   background: #201f2f;
   overflow: hidden;
-}
-.movie-detail-info-class{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  padding-left: 1rem;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  background: #201f2f;
-  overflow: hidden;
-  /* border: 1px solid red */
 }
 
-.movie-detail-title{
-  /* border: 1px solid red; */
+.movie_detail_title{
   font-weight: 700;
   font-size: 50px;
   margin-bottom: 20px;
@@ -62,46 +49,30 @@
 
 
 
-.movie-detail-plot-container{
+.movie_detail_plot_container{
   display: flex; 
   flex-direction: column;
   font-size: 25px;
 }
 
 
-.movie-info-class:hover {
+.movie_info_class:hover {
   background: rgba(207, 13, 65, 0.4);
 }
 
-.movie-title {
+.movie_title {
   font-weight: 700;
   font-size: 50px;
   margin-bottom: 20px;
 }
 
-.movie-year {
+.movie_year {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
-.movie-type {
+.movie_type {
   font-weight: 700;
   font-size: 1.25rem;
 }
 
-.movie-button {
-  background-color: #201f2f;
-  font-size: large;
-  font-weight: 700;
-  width: "300px";
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 25px;
-  border-radius: 10px;
-  padding: 10px;
-  border-style: none;
-}
-
-.movie-button:hover {
-  cursor: pointer;
-}

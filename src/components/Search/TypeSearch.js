@@ -2,12 +2,17 @@ import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
+
+
 import { movieTypes } from '../../constant/movie';
 import { firstLetterUpper } from '../../utils/firstLetterUpper';
 
 //Context: 
 import { useContext } from 'react';
 import { MovieContext } from '../../context/movieContext';
+
+//styles:
+import styles from  '../../style/searchBar.module.css'
 
 const TypeSearch = () => {
 
@@ -21,7 +26,7 @@ const TypeSearch = () => {
     return (
         <Dropdown data-bs-theme="dark">
             <Dropdown.Toggle 
-                id="dropdown-button-dark" 
+                id={styles.dropdown_button_dark}
                 >
                {firstLetterUpper(type)}
             </Dropdown.Toggle>

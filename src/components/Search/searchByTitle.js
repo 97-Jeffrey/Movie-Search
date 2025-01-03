@@ -18,7 +18,7 @@ import { MovieContext } from '../../context/movieContext';
 import { noResult, noTitle } from '../../constant/notification';
 
 //styling:
-import '../../style/searchBar.css'
+import styles from '../../style/searchBar.module.css'
 
 
 
@@ -31,7 +31,7 @@ const SearchByTitle = () =>{
   return (
     <>
      {/* Movie Search With filters */}
-      <div className="search">
+      <div className={styles.search}>
         <TitleSearch />
         <TypeSearch />
         <YearSearch />

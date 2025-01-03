@@ -9,6 +9,10 @@ import IdSearch from './IdSearch';
 import useMovie from '../../hooks/useMovie';
 import Movie from '../Movie/movie';
 
+
+//styles:
+import styles from  '../../style/searchBar.module.css'
+
 const SearchById = () =>{
 
     const { id, setId} = useContext(MovieContext)
@@ -16,7 +20,7 @@ const SearchById = () =>{
   
     return (
         <>
-            <div className="search">
+            <div className={styles.search}>
                 <IdSearch
                     id={id}
                     setId={setId}
