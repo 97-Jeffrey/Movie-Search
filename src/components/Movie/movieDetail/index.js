@@ -39,9 +39,9 @@ const MovieDetail = ({ movie }) =>{
               </div>
 
               <MoviePlot value={movie.Plot} />
-              <MoviePersonal title='ACTORS' value={movie.Actors}/>
+              <MoviePersonal title='ACTORS' value={movie.Actors} type='array'/>
               <MoviePersonal title='DIRECTORS' value={movie.Director}/>
-              <MoviePersonal title='WRITER' value={movie.Writer}/>
+              <MoviePersonal title='WRITER' value={movie.Writer} type='array'/>
               <MoviePersonal title='PRODUCTIONS' value={movie.Production}/>
               <br></br>
               <br></br>
