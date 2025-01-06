@@ -15,7 +15,7 @@ import useMovies from '../../hooks/useMovies';
 import { MovieContext } from '../../context/movieContext';
 
 // Constants:
-import { noResult, noTitle } from '../../constant/notification';
+import { NO_RESULT, NO_TITLE } from '../../constant/notification';
 
 //styling:
 import styles from '../../style/searchBar.module.css'
@@ -42,8 +42,8 @@ const SearchByTitle = () =>{
 
       { 
         movies.length ? 
-        <Movies movies={movies} /> : 
-        <Notify text={title? noResult: noTitle}/>
+        <Movies movies={ movies } /> : 
+        <Notify text={ title? NO_RESULT: NO_TITLE }/>
       }
     </>
   )

@@ -4,7 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 
 
-import { movieTypes } from '../../constant/movie';
+import { MOVIE_TYPES } from '../../constant/movie';
 import { firstLetterUpper } from '../../utils/firstLetterUpper';
 
 //Context: 
@@ -32,7 +32,7 @@ const TypeSearch = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              {movieTypes.map((typ, index)=>(
+              {MOVIE_TYPES.map((typ, index)=>(
                 <Dropdown.Item 
                   key={index} 
                   onClick={()=>changeMovieType(typ)}
