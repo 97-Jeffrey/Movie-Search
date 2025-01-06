@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from  '../../../style/moviePage.module.css'
 
 // components:
@@ -7,12 +7,16 @@ import MovieInfoContainer from './movieInfoContainer';
 import MoviePersonal from './moviePersonal';
 import MoviePlot from './moviePlot';
 import NavigateButton from '../../UI/Button/navigateButton';
+import ShowButton from '../../UI/Button/showButton';
 
 // route:
 import { HOME } from '../../../constant/route';
 
 
 const MovieDetail = ({ movie }) =>{
+
+    const [showMore, setShowMore] = useState(false)
+
     return(
         <>
             <div className={styles.movie_detail}>
@@ -43,9 +47,27 @@ const MovieDetail = ({ movie }) =>{
               <MoviePersonal title='DIRECTORS' value={movie.Director}/>
               <MoviePersonal title='WRITER' value={movie.Writer} type='array'/>
               <MoviePersonal title='PRODUCTIONS' value={movie.Production}/>
+              
+              {showMore &&
+                <>
+                  <MoviePersonal title='BOX OFFICE' value={movie.BoxOffice}/>
+                  <MoviePersonal title='AWARDS' value={movie.Awards}/>
+                  <MoviePersonal title='DVDS' value={movie.DVD}/>
+                  <MoviePersonal title='RATES' value={movie.Rated}/>
+                </>
+              }
+              
+              <ShowButton 
+                  state={showMore}
+                  setState={setShowMore}
+                  text={`${showMore ?"Less":"More"} Information`}
+              />
+
               <br></br>
               <br></br>
               <NavigateButton text='Back' url={HOME}/>
+
+
     
             </div>
         </>
