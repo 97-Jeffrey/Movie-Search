@@ -1,3 +1,2 @@
-export const movieTypes =['movie', 'series', 'episode']
-
-export const firstMovieYear = 1895;
+export const MOVIE_TYPES = ['movie', 'series', 'episode']
+export const FIRST_MOVIE_YEAR  = 1895;

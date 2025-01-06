@@ -12,12 +12,12 @@ const useMovie = (movieId) =>{
         setLoading(true)
         getMovie(movieId).then(res=>{
             console.log('res', res)
+            setLoading(false)
             if(res.err){
-                setLoading(false)
+                setMovie({})
                 setError(res.err)
                 
             }else{
-                setLoading(false)
                 setMovie(res)
             }
 

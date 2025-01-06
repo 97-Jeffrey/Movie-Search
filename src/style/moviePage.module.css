@@ -71,3 +71,23 @@
 .movie_personal_title{
     font-weight: bold;
 }
+
+.movie_array{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10px; */
+    gap: 20px
+}
+
+.movie_item{
+    background-color:  rgb(233, 75, 128);
+    padding: 3px 8px 3px 8px;
+    border-radius: 8px;
+}
+
+.more_button{
+    font-weight: bold;
+    cursor: pointer;
+}

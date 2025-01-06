@@ -8,3 +8,11 @@
     font-weight: bold;
 
 }
+
+.show_button{
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
