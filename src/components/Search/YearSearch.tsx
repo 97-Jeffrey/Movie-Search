@@ -9,7 +9,7 @@ import { useMovieContext } from '../../hooks/useMovieContext';
 //styles:
 import styles from  '../../style/searchBar.module.css'
 
-const YearSearch: React.FC = () => {
+const YearSearch: React.FC = () : React.ReactNode  => {
 
     const { year, setYear } = useMovieContext()
 

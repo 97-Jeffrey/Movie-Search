@@ -7,7 +7,7 @@ interface MoviePlotInterface {
     value: string
 }
 
-const MoviePlot: React.FC<MoviePlotInterface> = ({ value }) =>{
+const MoviePlot: React.FC<MoviePlotInterface> = ({ value }) : React.ReactNode  =>{
     return(
         <div className={styles.movie_plot}>
             {notFound(value)}

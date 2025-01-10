@@ -7,7 +7,7 @@ interface NotidyInterface {
    text: string
 }
 
-const Notify: React.FC<NotidyInterface> = ({ text }) =>{
+const Notify: React.FC<NotidyInterface> = ({ text }): React.ReactNode  =>{
 
   return (
     <>

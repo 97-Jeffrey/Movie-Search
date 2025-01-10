@@ -20,7 +20,7 @@ interface MovieDetailProps {
 }
 
 
-const MovieDetail: React.FC<MovieDetailProps> = ({ movie }) =>{
+const MovieDetail: React.FC<MovieDetailProps> = ({ movie }): React.ReactNode =>{
 
     const [showMore, setShowMore] = useState<boolean>(false)
 

@@ -12,7 +12,7 @@ interface MoviesInterface {
   movies: Movies_Interface
 }
 
-const Movies: React.FC<MoviesInterface> = ({ movies }) =>{
+const Movies: React.FC<MoviesInterface> = ({ movies }) : React.ReactNode  =>{
 
   return (
     <div className={styles.movies}>

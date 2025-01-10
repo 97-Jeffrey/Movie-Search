@@ -1,8 +1,8 @@
 import { queryUrl } from "../../utils/getUrl";
 import axios from 'axios';
-import { Movie } from "../../type/movie";
+import { Movie_Interface } from "../../type/movie";
 
-const getMovies = async (title: string, type: string, year: number): Promise<Movie[]> =>{
+const getMovies = async (title: string, type: string, year: number): Promise<Movie_Interface[]> =>{
     
 
     try{

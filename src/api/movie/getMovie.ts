@@ -1,8 +1,8 @@
 import { getUrlById } from "../../utils/getUrlById";
-import { MovieDetail } from "../../type/movie";
+import { Movie_Detail_Interface } from "../../type/movie";
 import axios from 'axios';
 
-const getMovie = async (movieId: string): Promise<MovieDetail> =>{
+const getMovie = async (movieId: string): Promise<Movie_Detail_Interface> =>{
 
     try{
       const res =  await axios.get(getUrlById(movieId));

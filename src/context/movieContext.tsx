@@ -23,7 +23,7 @@ interface MovieProviderProps {
 }
 
 // Create the provider component
-const MovieProvider: React.FC<MovieProviderProps>= ({ children }) => {
+const MovieProvider: React.FC<MovieProviderProps>= ({ children }) : React.ReactNode  => {
   const [title, setTitle] = useState<string>("");
   const [type, setType] = useState<string>("movie");
   const [year, setYear] = useState<number>(2024);

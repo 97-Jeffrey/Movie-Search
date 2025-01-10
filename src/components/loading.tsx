@@ -2,7 +2,7 @@ import React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import  styles from '../style/loading.module.css'
 
-const Loading: React.FC = () =>{
+const Loading: React.FC = (): React.ReactNode  =>{
     return(
         <>
            <div className={styles.page}>
