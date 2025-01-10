@@ -10,7 +10,7 @@ interface MovieInterface {
   movie:  Movie_Interface | Movie_Detail_Interface
 }
 
-const Movie: React.FC<MovieInterface> = ({ movie }) =>{
+const Movie: React.FC<MovieInterface> = ({ movie }) : React.ReactNode  =>{
 
   const navigate: NavigateFunction = useNavigate();
 

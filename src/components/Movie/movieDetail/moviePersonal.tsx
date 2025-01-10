@@ -9,7 +9,7 @@ interface MoviePersonalProps {
     type?: string
 }
 
-const MoviePersonal: React.FC<MoviePersonalProps> = ({ title, value, type }) =>{
+const MoviePersonal: React.FC<MoviePersonalProps> = ({ title, value, type }) : React.ReactNode =>{
     return(
         <div className={styles.movie_personal}>
             <div className={styles.movie_personal_title}>{title}</div>

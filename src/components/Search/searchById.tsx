@@ -15,7 +15,7 @@ import { NO_RESULT, NO_ID } from '../../constant/notification';
 //styles:
 import styles from  '../../style/searchBar.module.css'
 
-const SearchById: React.FC = () =>{
+const SearchById: React.FC = () : React.ReactNode  =>{
 
     const { id, setId } = useMovieContext()
     const { movie } = useMovie(id)

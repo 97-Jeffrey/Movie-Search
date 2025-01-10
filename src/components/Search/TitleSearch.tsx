@@ -6,7 +6,7 @@ import styles from  '../../style/searchBar.module.css'
 import { useMovieContext } from '../../hooks/useMovieContext';
 
 
-const TitleSearch: React.FC = () =>{
+const TitleSearch: React.FC = () : React.ReactNode  =>{
 
     const { title, setTitle } =useMovieContext()
     return (

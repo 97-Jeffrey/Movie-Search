@@ -8,7 +8,7 @@ interface NavigateButtonInterface {
 }
 
 
-const NavigateButton: React.FC<NavigateButtonInterface>  = ({ text, url }) =>{
+const NavigateButton: React.FC<NavigateButtonInterface>  = ({ text, url }) : React.ReactNode  =>{
    return (
     <Link to={url}>
         <button className={style.back_button}>

@@ -22,7 +22,8 @@ import styles from '../../style/searchBar.module.css'
 
 
 
-const SearchByTitle = () =>{
+
+const SearchByTitle: React.FC = () : React.ReactNode  =>{
 
   const { title } = useMovieContext()
  

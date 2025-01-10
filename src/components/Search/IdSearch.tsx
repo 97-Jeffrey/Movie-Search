@@ -7,7 +7,7 @@ interface IdSearchInterface {
 }
 
 
-const IdSearch: React.FC<IdSearchInterface> =({ id,  setId })=>{
+const IdSearch: React.FC<IdSearchInterface> =({ id,  setId }) : React.ReactNode =>{
     return (
         <input
             data-testid={styles.search_input}

@@ -9,7 +9,7 @@ import styles from '../style/header.module.css'
 import searchStyle from '../style/searchBar.module.css'
 
 
-const Header: React.FC = () =>{
+const Header: React.FC = () : React.ReactNode  =>{
 
   const { searchMovieBy, setSearchMovieBy } = useMovieContext()
 

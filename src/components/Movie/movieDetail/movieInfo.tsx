@@ -7,7 +7,7 @@ interface MoiveInfoInterface {
     value: string
 }
 
-const MovieInfo: React.FC<MoiveInfoInterface> = ({ title, value }) =>{
+const MovieInfo: React.FC<MoiveInfoInterface> = ({ title, value }) : React.ReactNode  =>{
 
     return (
         <div className={styles.movie_detail_container_small}>

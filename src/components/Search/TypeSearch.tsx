@@ -10,7 +10,7 @@ import { useMovieContext } from '../../hooks/useMovieContext';
 //styles:
 import styles from  '../../style/searchBar.module.css'
 
-const TypeSearch: React.FC = () => {
+const TypeSearch: React.FC = () : React.ReactNode  => {
 
 
     const { type, setType } = useMovieContext()

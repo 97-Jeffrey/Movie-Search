@@ -9,7 +9,7 @@ import MovieDetail from '../components/Movie/movieDetail';
 import useMovie from '../hooks/useMovie';
 
 
-const Movie: React.FC  = () =>{
+const Movie: React.FC  = (): React.ReactNode  =>{
 
     
     const { id } = useParams();

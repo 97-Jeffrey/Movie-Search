@@ -3,7 +3,13 @@ import styles from  '../../../style/moviePage.module.css'
 
 import { noneValue } from '../../../utils/movie';
 
-const MovieMain = ({ name, date, country }) =>{
+interface MovieMainInterface {
+    name: string,
+    date: string, 
+    country: string
+}
+
+const MovieMain: React.FC<MovieMainInterface> = ({ name, date, country }) : React.ReactNode  =>{
     return(
         <>
             <div className={styles.movie_detail_title}>{noneValue(name)}</div>

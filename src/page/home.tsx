@@ -12,7 +12,7 @@ import Header from '../components/header';
 // styling:
 import '../App.css';
 
-const Home: React.FC = () => {
+const Home: React.FC = (): React.ReactNode  => {
 
   const { searchMovieBy } = useMovieContext()
 

@@ -8,7 +8,7 @@ interface ShowButtonInterface {
   setState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ShowButton: React.FC<ShowButtonInterface> = ({ state, setState, text }) =>{
+const ShowButton: React.FC<ShowButtonInterface> = ({ state, setState, text }) : React.ReactNode  =>{
    return (
         <button 
             className={style.show_button}
