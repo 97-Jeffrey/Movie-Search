@@ -3,21 +3,24 @@
 ## Languages/Tools Used:
 
 1. React.js
-2. JavaScript
+2. Typescript
 3. HTML
 4. CSS
-5. React Testing Library /Jest
-6. Bootstrap
+5. Bootstrap
+6. React Testing Library /Jest
+
 
 <br>
 
-## Available Scripts
 
 ## Screenshots for the App:
 
 ![empty](https://github.com/97-Jeffrey/Movie-Search/blob/master/Doc/Screenshot%202025-01-02%20at%208.27.30%E2%80%AFPM.png?raw=true)
 
 ![avengers](https://github.com/97-Jeffrey/Movie-Search/blob/master/Doc/Screenshot%202025-01-02%20at%208.27.07%E2%80%AFPM.png?raw=true)
+
+
+![detail](https://github.com/97-Jeffrey/Movie-Search/blob/master/Doc/Screenshot%202025-02-09%20at%2010.58.47%E2%80%AFPM.png?raw=true)
 
 Please clone this Project by
 
