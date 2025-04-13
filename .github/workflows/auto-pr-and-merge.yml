@@ -28,18 +28,26 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { data: prs } = await github.rest.pulls.list({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              head: 'jeffrey',
-              base: 'master'
-            });
-            if (prs.length > 0) {
-              await github.rest.pulls.merge({
+            try {
+                const { data: prs } = await github.rest.pulls.list({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                pull_number: prs[0].number,
-                merge_method: 'merge'  # or 'squash'/'rebase'
-              });
+                state: 'open',
+                head: 'jeffrey',
+                base: 'master'
+                });
+                if (prs.length > 0) {
+                await github.rest.pulls.merge({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    pull_number: prs[0].number,
+                    merge_method: 'merge'
+                });
+                console.log(`Merged PR #${prs[0].number} successfully!`);
+                } else {
+                console.log('No open PRs found from jeffrey to master.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                throw error;  // Fail the step
             }
