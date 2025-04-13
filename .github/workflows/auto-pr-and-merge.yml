@@ -24,7 +24,7 @@ jobs:
 
       # 3. Auto-merge PR (if checks pass)
       - name: Auto-merge PR
-        if: success()  # Only run if previous steps succeed
+        if: steps.create-pr.outputs.pull-request-number != '' # Only run if previous steps succeed
         uses: actions/github-script@v6
         with:
           script: |
