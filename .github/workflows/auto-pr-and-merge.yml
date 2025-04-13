@@ -1,4 +1,4 @@
-name: Auto PR and Merge
+name: Guaranteed Auto PR and Merge
 
 on:
   push:
@@ -14,50 +14,74 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1. FIRST Verify Branch State
-      - name: Verify Branch Status
+      # 1. Verify there are actual changes
+      - name: Check for changes
+        id: check-changes
         run: |
-          echo "Current branch: $GITHUB_REF"
           git fetch origin master
-          git diff --name-only origin/master
-          git log --oneline -n 3
+          CHANGES_EXIST=$(git diff --name-only origin/master)
+          if [ -z "$CHANGES_EXIST" ]; then
+            echo "::warning::No changes detected"
+            echo "should_continue=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected:"
+            echo "$CHANGES_EXIST"
+            echo "should_continue=true" >> $GITHUB_OUTPUT
+          fi
 
-      # 2. NEW Reliable PR Creation
-      - name: Create PR
+      # 2. Create PR using direct API
+      - name: Create PR via API
+        if: steps.check-changes.outputs.should_continue == 'true'
         id: create-pr
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Automatic update from workflow"
-          title: "Auto PR: $(date +'%Y-%m-%d %H:%M:%S')"
-          body: "Automated PR from workflow run"
-          base: master
-          branch: jeffrey
-          delete-branch: false
-          assignees: ${{ github.actor }}
-          labels: "automated"
-
-      # 3. DEBUG with Guaranteed Outputs
-      - name: Debug PR Creation
-        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "PR_NUMBER=$(curl -s \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          PR_JSON=$(curl -s -X POST \
+            -H "Authorization: token $GH_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls?head=${{ github.repository_owner }}:jeffrey&base=master" \
-            | jq -r '.[0].number')" >> $GITHUB_ENV
+            "https://api.github.com/repos/${{ github.repository }}/pulls" \
+            -d '{
+              "title":"Auto PR: $(date +"%Y-%m-%d %H:%M")",
+              "body":"Automatically created PR",
+              "head":"jeffrey",
+              "base":"master"
+            }')
           
-          echo "Manual PR Check:"
-          echo "PR Number: ${PR_NUMBER}"
-          echo "PR URL: https://github.com/${{ github.repository }}/pull/${PR_NUMBER}"
+          PR_NUMBER=$(echo "$PR_JSON" | jq -r '.number')
+          PR_URL=$(echo "$PR_JSON" | jq -r '.html_url')
+          
+          if [ "$PR_NUMBER" != "null" ]; then
+            echo "PR_CREATED=true" >> $GITHUB_OUTPUT
+            echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_OUTPUT
+            echo "PR_URL=$PR_URL" >> $GITHUB_OUTPUT
+            echo "PR created: $PR_URL"
+          else
+            echo "::error::PR creation failed"
+            echo "$PR_JSON"
+            exit 1
+          fi
 
-      # 4. Merge Using Direct API
-      - name: Merge PR
-        if: env.PR_NUMBER != 'null'
+      # 3. Merge PR via API
+      - name: Merge PR via API
+        if: steps.create-pr.outputs.PR_CREATED == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Merging PR #${PR_NUMBER}"
-          curl -s -X PUT \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          echo "Merging PR #${{ steps.create-pr.outputs.PR_NUMBER }}"
+          
+          RESPONSE=$(curl -s -X PUT \
+            -H "Authorization: token $GH_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/merge" \
-            -d '{"merge_method":"merge"}' && echo "Merge successful" || echo "Merge failed"
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ steps.create-pr.outputs.PR_NUMBER }}/merge" \
+            -d '{"merge_method":"merge"}')
+          
+          echo "Merge response:"
+          echo "$RESPONSE" | jq .
+          
+          if [ $(echo "$RESPONSE" | jq -r '.merged') == "true" ]; then
+            echo "::notice::Successfully merged"
+          else
+            echo "::error::Merge failed"
+            echo "$RESPONSE" | jq -r '.message'
+            exit 1
+          fi

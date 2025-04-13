@@ -22,12 +22,14 @@ const Movie: React.FC<MovieInterface> = ({ movie }) : React.ReactNode  =>{
     <div className={styles.movie} onClick={goToMovie}>
       
       {
+
         movie.Poster==='N/A'?
           <div className={styles.movie_error}/>:
           <img src={movie.Poster} 
             className={styles.movie_poster}
             alt={movie.Title}
           />
+
       }
 
       <div className={styles.movie_info_class}>
