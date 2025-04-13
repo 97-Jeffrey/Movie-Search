@@ -1,0 +1,45 @@
+name: Auto PR and Merge
+
+on:
+  push:
+    branches: [ jeffrey ]  # Trigger only on pushes to "jeffrey"
+
+jobs:
+  create-and-merge-pr:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout code
+      - uses: actions/checkout@v4
+
+      # 2. Create Pull Request
+      - name: Create PR from jeffrey to master
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "Auto PR: jeffrey → master"
+          body: "Automated PR created from jeffrey branch"
+          base: master  # Target branch
+          branch: jeffrey  # Source branch
+          delete-branch: false  # Keep jeffrey branch after merge
+          draft: false  # Mark as ready for review
+
+      # 3. Auto-merge PR (if checks pass)
+      - name: Auto-merge PR
+        if: success()  # Only run if previous steps succeed
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: 'jeffrey',
+              base: 'master'
+            });
+            if (prs.length > 0) {
+              await github.rest.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prs[0].number,
+                merge_method: 'merge'  # or 'squash'/'rebase'
+              });
+            }

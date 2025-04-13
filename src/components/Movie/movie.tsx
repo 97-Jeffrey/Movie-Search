@@ -33,8 +33,6 @@ const Movie: React.FC<MovieInterface> = ({ movie }) : React.ReactNode  =>{
         <div className={styles.movie_title}>{movie.Title}</div>
         <div className={styles.movie_year}> Released In {movie.Year}</div>
         <div className={styles.movie_type}> Type: {movie.Type}</div> 
-
-        
       </div>
 
       
