@@ -2,55 +2,55 @@ name: Auto PR and Merge
 
 on:
   push:
-    branches: [ jeffrey ]  # Trigger only on pushes to "jeffrey"
+    branches: [ jeffrey ]
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   create-and-merge-pr:
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout code
       - uses: actions/checkout@v4
 
-      # 2. Create Pull Request
-      - name: Create PR from jeffrey to master
-        uses: peter-evans/create-pull-request@v5 
-        id: create-pr 
+      # 1. Create PR and DEBUG outputs
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v5
+        id: create-pr
         with:
           title: "Auto PR: jeffrey → master"
-          body: "Automated PR created from jeffrey branch"
-          base: master  # Target branch
-          branch: jeffrey  # Source branch
-          delete-branch: false  # Keep jeffrey branch after merge
-          draft: false  # Mark as ready for review
+          base: master
+          branch: jeffrey
+          delete-branch: false
 
-      # 3. Auto-merge PR (if checks pass)
+      # 2. Print PR details (debugging)
+      - name: Debug PR Outputs
+        if: always()
+        run: |
+          echo "PR Number: ${{ steps.create-pr.outputs.pull-request-number }}"
+          echo "PR URL: ${{ steps.create-pr.outputs.pull-request-url }}"
+          echo "PR Created: ${{ steps.create-pr.outputs.pull-request-created }}"
+
+      # 3. Auto-merge (directly use PR number from create-pr)
       - name: Auto-merge PR
-        if: |
-          steps.create-pr.outcome == 'success' &&
-          steps.create-pr.outputs.pull-request-number != ''
+        if: steps.create-pr.outputs.pull-request-number != ''
         uses: actions/github-script@v6
         with:
           script: |
             try {
-                const { data: prs } = await github.rest.pulls.list({
+              const prNumber = ${{ steps.create-pr.outputs.pull-request-number }};
+              console.log(`Attempting to merge PR #${prNumber}...`);
+              
+              const response = await github.rest.pulls.merge({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                state: 'open',
-                head: 'jeffrey',
-                base: 'master'
-                });
-                if (prs.length > 0) {
-                await github.rest.pulls.merge({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    pull_number: prs[0].number,
-                    merge_method: 'merge'
-                });
-                console.log(`Merged PR #${prs[0].number} successfully!`);
-                } else {
-                console.log('No open PRs found from jeffrey to master.');
-                }
+                pull_number: prNumber,
+                merge_method: 'merge'
+              });
+              console.log('✅ Response:', JSON.stringify(response.data));
             } catch (error) {
-                console.error('Error:', error);
-                throw error;  // Fail the step
+              console.error('❌ FULL ERROR:', JSON.stringify(error, null, 2));
+              // Non-blocking error
+              core.setFailed(`Merge failed: ${error.message}`);
             }
