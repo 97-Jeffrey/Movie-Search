@@ -2,55 +2,62 @@ name: Auto PR and Merge
 
 on:
   push:
-    branches: [ jeffrey ]
+    branches: [jeffrey]
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  create-and-merge-pr:
+  create-and-merge:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # 1. Create PR and DEBUG outputs
+      # 1. FIRST Verify Branch State
+      - name: Verify Branch Status
+        run: |
+          echo "Current branch: $GITHUB_REF"
+          git fetch origin master
+          git diff --name-only origin/master
+          git log --oneline -n 3
+
+      # 2. NEW Reliable PR Creation
       - name: Create PR
-        uses: peter-evans/create-pull-request@v5
         id: create-pr
+        uses: peter-evans/create-pull-request@v5
         with:
-          title: "Auto PR: jeffrey → master"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Automatic update from workflow"
+          title: "Auto PR: $(date +'%Y-%m-%d %H:%M:%S')"
+          body: "Automated PR from workflow run"
           base: master
           branch: jeffrey
           delete-branch: false
+          assignees: ${{ github.actor }}
+          labels: "automated"
 
-      # 2. Print PR details (debugging)
-      - name: Debug PR Outputs
+      # 3. DEBUG with Guaranteed Outputs
+      - name: Debug PR Creation
         if: always()
         run: |
-          echo "PR Number: ${{ steps.create-pr.outputs.pull-request-number }}"
-          echo "PR URL: ${{ steps.create-pr.outputs.pull-request-url }}"
-          echo "PR Created: ${{ steps.create-pr.outputs.pull-request-created }}"
+          echo "PR_NUMBER=$(curl -s \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls?head=${{ github.repository_owner }}:jeffrey&base=master" \
+            | jq -r '.[0].number')" >> $GITHUB_ENV
+          
+          echo "Manual PR Check:"
+          echo "PR Number: ${PR_NUMBER}"
+          echo "PR URL: https://github.com/${{ github.repository }}/pull/${PR_NUMBER}"
 
-      # 3. Auto-merge (directly use PR number from create-pr)
-      - name: Auto-merge PR
-        if: steps.create-pr.outputs.pull-request-number != ''
-        uses: actions/github-script@v6
-        with:
-          script: |
-            try {
-              const prNumber = ${{ steps.create-pr.outputs.pull-request-number }};
-              console.log(`Attempting to merge PR #${prNumber}...`);
-              
-              const response = await github.rest.pulls.merge({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: prNumber,
-                merge_method: 'merge'
-              });
-              console.log('✅ Response:', JSON.stringify(response.data));
-            } catch (error) {
-              console.error('❌ FULL ERROR:', JSON.stringify(error, null, 2));
-              // Non-blocking error
-              core.setFailed(`Merge failed: ${error.message}`);
-            }
+      # 4. Merge Using Direct API
+      - name: Merge PR
+        if: env.PR_NUMBER != 'null'
+        run: |
+          echo "Merging PR #${PR_NUMBER}"
+          curl -s -X PUT \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/merge" \
+            -d '{"merge_method":"merge"}' && echo "Merge successful" || echo "Merge failed"

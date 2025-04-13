@@ -7,6 +7,7 @@ interface MovieInfoContainerInterface{
         title: string, 
         value: string 
     }[]
+
 }
 
 const MovieInfoContainer: React.FC<MovieInfoContainerInterface> = ({ info }): React.ReactNode  => {
