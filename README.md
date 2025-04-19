@@ -1,13 +1,12 @@
-# This is A Dynamic Movie Search App Implemented In React.js
+# Movie Freak
+###  A Dynamic Movie Search App Implemented.
 
-## Languages/Tools Used:
+### React + Typescript + Bootstrap + Jest
 
-1. React.js
-2. Typescript
-3. HTML
-4. CSS
-5. Bootstrap
-6. React Testing Library /Jest
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) 
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 
 <br>
